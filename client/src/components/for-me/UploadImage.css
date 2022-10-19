@@ -1,0 +1,36 @@
+.dropzone {
+  max-width: 600px;
+  min-width: 400px;
+  width: 100%;
+  height: 300px;
+  border: 5px dashed #ada3a3;
+  border-radius: 20px;
+  text-align: center;
+  padding: 90px 20px 0 20px;
+  cursor: pointer;
+}
+
+.dropzone-edit {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.preview-upload-area img {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.preview-upload-area button {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.preview-upload-area p {
+  text-align: center;
+}

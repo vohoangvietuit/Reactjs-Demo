@@ -1,0 +1,39 @@
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+const PrivateRoute = ({ component: Component, auth, forAdmin, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      auth.isAuthenticated === true ? (
+        forAdmin ? (
+          auth.user.isAdmin ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to="/not-found" />
+          )
+        ) : (
+          <Component {...props} />
+        )
+      ) : (
+        <Redirect to="/landing" />
+      )
+    }
+  />
+);
+
+PrivateRoute.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+PrivateRoute.defaultProps = {
+  forAdmin: false
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(PrivateRoute);

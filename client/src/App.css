@@ -1,0 +1,115 @@
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.product-list,
+.home {
+  min-height: 200px;
+}
+
+.btn,
+.form-control {
+  border-radius: 0;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #868686;
+}
+
+.product-show-list .card img {
+  margin: 0 auto;
+  max-width: 260px;
+  /* max-height: 300px; */
+  height: 270px;
+}
+
+.preview-area {
+  margin-top: 126px;
+  color: #5a6161;
+  padding: 12px;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.preview-area img {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+}
+
+.input-modify {
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid;
+}
+
+.avatar-area {
+  max-width: 205px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.avatar-area .update-btn {
+  color: #131b1b;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+/* shopping cart area*/
+.shopping-cart {
+  border-left: 1px solid;
+  padding-left: 12px;
+}
+
+.cart-item {
+  background: #eae8e473;
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+.info-product .delete-item {
+  cursor: pointer;
+}
+
+.image-product {
+  width: 108px;
+  height: 130px;
+}
+
+.info-price {
+  font-size: 22px;
+}
+
+.group-edit .btn {
+  padding: 1px 10px;
+}
+
+.group-edit .edit-btn {
+  border-radius: 10px;
+  color: #8e8e8e;
+}
+
+/* For table ellipsis */
+.table .text {
+  position: relative;
+}
+
+.table .text span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.text::before {
+  content: '';
+  display: inline-block;
+}
