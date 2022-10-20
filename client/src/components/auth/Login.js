@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../actions/authAction';
 
@@ -7,12 +7,18 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import { ToastContainer } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import Spinner from '../common/Spinner';
+import { useForm, Controller } from 'react-hook-form';
 
 function Login () {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { control, handleSubmit, formState: { errors: fieldErrors } } = useForm({
+    defaultValues: {
+      email: '',
+      password: ''
+    }
+  });
 
   const { auth, errors } = useSelector(state => state);
+  const requiredMessage = 'This field is required';
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -22,15 +28,15 @@ function Login () {
     }
   }, [auth.isAuthenticated]);
 
-  const onSubmit = e => {
-    e.preventDefault();
+  const onSubmit = data => {
+    // e.preventDefault();
 
-    const userData = {
-      email,
-      password
-    };
+    // const userData = {
+    //   email,
+    //   password
+    // };
 
-    dispatch(loginUser(userData));
+    dispatch(loginUser(data));
   };
 
   const spinner = auth.loading ? <Spinner /> : null;
@@ -42,25 +48,42 @@ function Login () {
           { spinner }
           <h1 className="display-4 text-center">Log In</h1>
           <p className="lead text-center">Sign in to your account</p>
-          <form onSubmit={onSubmit} noValidate>
-            <TextFieldGroup
-              placeholder="Email Address"
+          <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <Controller
               name="email"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              error={errors.email}
-            />
+              control={control}
+              rules={{
+                required: requiredMessage
+              }}
+              render={({ field: { name, value, onChange } }) => <TextFieldGroup
+                placeholder="Email Address"
+                name={name}
+                value={value}
+                type="email"
+                error={fieldErrors.email?.message || errors.email}
+                onChange={onChange}
+              />}
+            >
+            </Controller>
 
-            <TextFieldGroup
-              placeholder="Password"
+            <Controller
               name="password"
-              type="password"
-              autoComplete="on"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              error={errors.password}
-            />
+              control={control}
+              rules={{
+                required: requiredMessage
+              }}
+              render={({ field: { name, value, onChange } }) => <TextFieldGroup
+                placeholder="Password"
+                name={name}
+                value={value}
+                type="password"
+                autoComplete="on"
+                error={fieldErrors.password?.message || errors.password}
+                onChange={onChange}
+              />}
+            >
+            </Controller>
+
             <input
               type="submit"
               value="Submit"
