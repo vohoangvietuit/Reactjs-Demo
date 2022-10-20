@@ -1,4 +1,4 @@
-# Project Nash - MERN Project 
+# Project Nash - React Demo CRUD
 
 **Demo web:** https://nash-management.herokuapp.com/home
 
