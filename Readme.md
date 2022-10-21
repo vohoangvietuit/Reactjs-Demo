@@ -12,6 +12,7 @@ IM is a system to manage items. Each item has various props (name, price, note, 
 permission.
 
 **Feauture:**
+* React Hook Form (Login page for example)
 * Docker setup (for dev)
 * Implement shopping cart feature for normal user (using localStorage)
 * Implement checkout feature, item quantity should be calculated
@@ -24,7 +25,7 @@ permission.
 * Implement upload image to server (ex: user avatar, product image) (Ongoing to fix bug)
 
 **Using technology:** 
-* ReactJS latest (Hook) + Redux (using Hook features) + React Hook Form (Login page for example)
+* ReactJS latest (Hook) + Redux (using Hook features)
 * NodeJS: for BE's API
 * MongoDB: with mongoose lib and mLad
 * ExpressJS
