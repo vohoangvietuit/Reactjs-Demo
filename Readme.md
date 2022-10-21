@@ -33,3 +33,6 @@ permission.
 **Tool:** Visual Studio Code
 
 **Deploy:** heroku web
+
+**Dev** 
+npm run dev
