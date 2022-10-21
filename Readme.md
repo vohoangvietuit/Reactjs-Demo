@@ -34,5 +34,6 @@ permission.
 
 **Deploy:** heroku web
 
-**Dev** 
-npm run dev
+**Dev local** 
+1/ npm i && npm run client-install
+2/ npm run dev
