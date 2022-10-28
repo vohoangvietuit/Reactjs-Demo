@@ -36,9 +36,9 @@ class EditProduct extends Component {
     this.props.getCategories();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.product.product._id !== this.props.product.product._id) {
-      const product = nextProps.product.product;
+  componentDidUpdate(prevProps) {
+    if (prevProps.product.product._id !== this.props.product.product._id) {
+      const product = this.props.product.product;
 
       this.setState({
         name: product.name,
@@ -50,12 +50,12 @@ class EditProduct extends Component {
       });
     }
 
-    // if (nextProps.errors.product) {
-    //   NotificationManager.warning(nextProps.errors.product, 'Error', 3000);
+    // if (this.props.errors.product) {
+    //   NotificationManager.warning(this.props.errors.product, 'Error', 3000);
     // }
 
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+    if (this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
   }
 

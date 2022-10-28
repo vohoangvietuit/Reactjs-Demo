@@ -24,9 +24,9 @@ class EditUser extends Component {
     this.props.getUser(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.user._id !== this.props.user.user._id) {
-      const user = nextProps.user.user;
+  componentDidUpdate(prevProps) {
+    if (prevProps.user.user._id !== this.props.user.user._id) {
+      const user = this.props.user.user;
 
       this.setState({
         name: user.name,
@@ -35,8 +35,8 @@ class EditUser extends Component {
       });
     }
 
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+    if (this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
   }
 

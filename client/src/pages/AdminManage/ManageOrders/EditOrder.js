@@ -24,9 +24,9 @@ class EditOrder extends Component {
     this.props.getOrder(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.order.order._id !== this.props.order.order._id) {
-      const order = nextProps.order.order;
+  componentDidUpdate(prevProps) {
+    if (prevProps.order.order._id !== this.props.order.order._id) {
+      const order = this.props.order.order;
 
       this.setState({
         address: order.address,
@@ -35,8 +35,8 @@ class EditOrder extends Component {
       });
     }
 
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+    if (this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
   }
 

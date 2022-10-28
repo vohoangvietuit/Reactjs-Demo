@@ -22,9 +22,9 @@ class EditCategory extends Component {
     this.props.getCategory(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.category.category._id !== this.props.category.category._id) {
-      const category = nextProps.category.category;
+  componentDidUpdate(prevProps) {
+    if (prevProps.category.category._id !== this.props.category.category._id) {
+      const category = this.props.category.category;
 
       this.setState({
         name: category.name,
@@ -32,8 +32,8 @@ class EditCategory extends Component {
       });
     }
 
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+    if (this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
   }
 
