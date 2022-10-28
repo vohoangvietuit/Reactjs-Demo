@@ -1,53 +1,54 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-import PrivateRoute from './components/common/PrivateRoute';
+import setAuthToken from 'shared/helpers/setAuthToken';
+import PrivateRoute from 'shared/components/PrivateRoute';
 
 import {
   // getCurrentUser,
   setCurrentUser,
   logoutUser
-} from './actions/authAction';
-import { setCart } from './actions/cartAction';
+} from 'store/actions/authAction';
+
+import { setCart } from 'store/actions/cartAction';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store from 'store/store';
 
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
+import Navbar from 'pages/Layout/Navbar';
+import Footer from 'pages/Layout/Footer';
 
-import Landing from './components/landing/Landing';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import ChangePassword from './components/auth/ChangePassword';
-import ChangeAvatar from './components/auth/ChangeAvatar';
+import Landing from 'pages/Landing';
+import Login from 'pages/Auth/Login';
+import Register from 'pages/Auth/Register';
+import ChangePassword from 'pages/Auth/ChangePassword';
+import ChangeAvatar from 'pages/Auth/ChangeAvatar';
 
-import UploadImage from './components/for-me/UploadImage';
+import UploadImage from 'shared/components/UploadImage/UploadImage';
 
-import Home from './components/home/Home';
-import Profile from './components/profile/Profile';
+import Home from 'pages/Home';
+import Profile from 'pages/Profile';
 
-import ManageUsers from './components/admin-manage/manage-users/ManageUsers';
-import ManageProducts from './components/admin-manage/manage-products/ManageProducts';
-import ManageCategories from './components/admin-manage/manage-categories/ManageCategories';
-import ManageOrders from './components/admin-manage/manage-orders/ManageOrders';
+import ManageUsers from 'pages/AdminManage/ManageUsers/ManageUsers';
+import ManageProducts from 'pages/AdminManage/ManageProducts/ManageProducts';
+import ManageCategories from 'pages/AdminManage/ManageCategories/ManageCategories';
+import ManageOrders from 'pages/AdminManage/ManageOrders/ManageOrders';
 
-// import ProductForm from './components/admin-manage/manage-products/ProductForm-unuse';
-import EditProduct from './components/admin-manage/manage-products/EditProduct';
-import AddProduct from './components/admin-manage/manage-products/AddProduct';
+// import ProductForm from 'modules/AdminManage/ManageProducts/ProductForm-unuse';
+import EditProduct from 'pages/AdminManage/ManageProducts/EditProduct';
+import AddProduct from 'pages/AdminManage/ManageProducts/AddProduct';
 
-import EditUser from './components/admin-manage/manage-users/EditUser';
-import AddUser from './components/admin-manage/manage-users/AddUser';
+import EditUser from 'pages/AdminManage/ManageUsers/EditUser';
+import AddUser from 'pages/AdminManage/ManageUsers/AddUser';
 
-import EditCategory from './components/admin-manage/manage-categories/EditCategory';
-import AddCategory from './components/admin-manage/manage-categories/AddCategory';
+import EditCategory from 'pages/AdminManage/ManageCategories/EditCategory';
+import AddCategory from 'pages/AdminManage/ManageCategories/AddCategory';
 
-import EditOrder from './components/admin-manage/manage-orders/EditOrder';
+import EditOrder from 'pages/AdminManage/ManageOrders/EditOrder';
 
-import Cart from './components/cart/Cart';
+import Cart from 'pages/Cart';
 
-import NotFound from './components/not-found/NotFound';
+import NotFound from 'pages/NotFound';
 
 import './App.css';
 
